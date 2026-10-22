@@ -27,7 +27,7 @@ function Header({ eyebrow, title, badge }: { eyebrow: string; title: string; bad
   );
 }
 
-function Card({ title, children, className = "" }: { title?: string; children: React.ReactNode; className?: string }) {
+export function Card({ title, children, className = "" }: { title?: string; children: React.ReactNode; className?: string }) {
   return (
     <div className={`bg-[var(--panel)] border border-[var(--border)] rounded-xl p-5 ${className}`}>
       {title && <div className="text-sm font-semibold mb-4">{title}</div>}
@@ -36,7 +36,7 @@ function Card({ title, children, className = "" }: { title?: string; children: R
   );
 }
 
-function Stat({ label, value, sub, tone }: { label: string; value: string; sub?: string; tone?: "good" | "accent" }) {
+export function Stat({ label, value, sub, tone }: { label: string; value: string; sub?: string; tone?: "good" | "accent" }) {
   const color = tone === "good" ? "text-[#16a34a]" : tone === "accent" ? "text-[var(--accent)]" : "";
   return (
     <div className="bg-[var(--panel)] border border-[var(--border)] rounded-xl p-4">
@@ -47,7 +47,7 @@ function Stat({ label, value, sub, tone }: { label: string; value: string; sub?:
   );
 }
 
-function Pill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "good" | "accent" | "warn" }) {
+export function Pill({ children, tone = "neutral" }: { children: React.ReactNode; tone?: "neutral" | "good" | "accent" | "warn" }) {
   const map = {
     neutral: "bg-[var(--panel-2)] text-[var(--muted)] border-[var(--border)]",
     good: "bg-[#e8f7ee] text-[#15803d] border-[#c6ecd4]",

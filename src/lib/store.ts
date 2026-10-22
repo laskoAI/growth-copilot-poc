@@ -25,7 +25,14 @@ export type PanelId =
   | "olxPeople"
   | "olxLearnings"
   | "olxNext"
-  | "olxWinback";
+  | "olxWinback"
+  | "pozBase"
+  | "pozClusters"
+  | "pozContent"
+  | "pozPath"
+  | "pozLive"
+  | "pozSummary"
+  | "pozNext";
 
 export type FlowId = "A" | "B" | "C" | null;
 

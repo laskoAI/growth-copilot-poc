@@ -44,9 +44,10 @@ export default function Welcome() {
           className="text-left bg-[var(--panel)] border border-[var(--border)] hover:border-[var(--accent-2)] rounded-xl p-6 transition"
         >
           <div className="text-[10px] uppercase tracking-wider text-[var(--muted)] mb-2">Masz tylko cel</div>
-          <div className="text-lg font-semibold mb-2">Więcej spotkań dla sprzedaży</div>
+          <div className="text-lg font-semibold mb-2">Więcej dem dla sprzedaży</div>
           <p className="text-sm text-[var(--muted)] leading-relaxed">
-            Mówisz, co sprzedajesz. Growth Marketer AI sam znajdzie firmy, do których warto pójść, także spoza Twojej bazy, i umówi z nimi spotkania.
+            Mówisz, co sprzedajesz. Growth Marketer AI znajdzie przychodnie w rejestrze i w Twojej bazie, rozpisze 2-tygodniową
+            ścieżkę mail → SMS → WhatsApp i powie handlowcom, do kogo dzwonić.
           </p>
         </button>
       </div>

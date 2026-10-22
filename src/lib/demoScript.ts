@@ -119,97 +119,67 @@ export const demoScriptA: Step[] = [
 // ============================================================
 export const demoScriptB: Step[] = [
   {
-    id: "b1_need",
-    quickReply:
-      "Mam produkt: system do zarządzania POZ — rejestracja, grafik, obsługa NFZ + prywatnych. Cel: więcej dem dla moich sprzedawców. Do kogo powinienem z tym pójść?",
-    keywords: ["produkt", "poz", "demo", "sprzedawc", "cel", "dem"],
-    aiTypingMs: 1400,
-    aiMessage:
-      "Rozpoznaję produkt: system do zarządzania placówką POZ (rejestracja + grafik + NFZ/prywatni). Cel: więcej umówionych dem dla zespołu sprzedaży. Zanim zaproponuję bazę — jaki masz horyzont czasowy i ilu handlowców będzie odbierać leady? To pomoże mi ustawić wielkość bazy i tempo kampanii.",
-  },
-  {
-    id: "b2_context",
-    quickReply: "Chcę wyniki w 4 tygodnie, mam 4 handlowców — realnie obsłużą ~50 dem tygodniowo łącznie.",
-    keywords: ["tydzie", "tydzień", "handlowc", "sprzedawc", "dem", "obsłuż"],
+    id: "b1_goal",
+    quickReply: "Chciałbym mieć jak najwięcej nowych dem dla zespołu sprzedażowego. Sprzedajemy produkt dla POZ.",
+    keywords: ["dem", "sprzeda", "poz", "produkt", "handlow"],
     aiTypingMs: 1600,
     aiMessage:
-      "Zapisane: 4 tygodnie, ~200 dem docelowo. Buduję bazę w dwóch warstwach. Warstwa 1: Twój HubSpot — filtruję po profilu decision maker w POZ, wielkości placówki, opłaconych fakturach i historii engagementu (~3 100 rekordów). Warstwa 2: wychodzę poza Twoją bazę — zaciągam publiczne dane o podmiotach leczniczych z RPWDL, kontraktów NFZ, LinkedIn i Znanego Lekarza — znalazłem ~6 800 nowych placówek pasujących do ICP. Zobacz propozycję po prawej i powiedz co o niej sądzisz.",
-    actions: [{ type: "setPanel", panel: "baseProposal" }],
+      "Dobra, rozumiem. Szukamy przychodni POZ, które mogą chcieć Waszego produktu.\n\nZacząłem od rejestru RPWDL, bo tam jest pełna lista placówek w Polsce. Po wybraniu POZ wychodzi 6 000 placówek (unikalnych NIP-ów).\n\nPotem zestawiłem je po NIP z Waszą bazą wewnętrzną (płacący klienci z NIP-em zmatchowanym z RPWDL):\n• 4 700 POZ-ów już macie w bazie, to 8 300 kontaktów. Zgodę marketingową ma 7 100 z nich, a 1 200 nie ma.\n• 1 300 POZ-ów w ogóle nie ma w Waszej bazie, więc nie mamy do nich żadnej zgody.\n\nTu potrzebuję Twojej decyzji. Bez zgody marketingowej nie wyślę maila, SMS-a ani WhatsAppa. Wysyłamy tylko do 7 100 kontaktów ze zgodą? Pozostałych mogę odłożyć albo przekazać handlowcom.",
+    actions: [{ type: "setPanel", panel: "pozBase" }],
   },
   {
-    id: "b3_accept",
-    quickReply: "Baza wygląda mocno. Akceptuję — jedziemy z 9 960 kontaktami.",
-    keywords: ["akceptuj", "ok", "jedzi", "baza", "wygląda", "dobra"],
-    aiTypingMs: 1200,
-    aiMessage:
-      "Super, baza zaakceptowana — 9 960 kontaktów. Ale zanim odpalę jedną kampanię do wszystkich, chcę Cię o coś zapytać: dyrektor wielkomiejskiego POZ z 25 specjalistami i właściciel małej przychodni w Radomiu to dwa różne światy — inny kanał, inny język, inne motywacje. Jak podzielić tę bazę? Mam trzy pomysły: (1) po mieście i wielkości placówki + sygnały intentu z web (rekomendowane), (2) po prostym profilu ICP, (3) bez podziału — jedna kampania do wszystkich. Który wolisz?",
-    actions: [{ type: "acceptBase" }],
-  },
-  {
-    id: "b3b_segment",
-    quickReply: "Idziemy z opcją 1 — podziel po mieście, wielkości i sygnałach intentu. Pokaż propozycję.",
-    keywords: ["opcja", "podziel", "1", "pierwsz", "rekomend", "miast", "intent"],
+    id: "b2_consent",
+    quickReply: "Wysyłamy tylko do tych ze zgodą. Resztę na razie odkładamy.",
+    keywords: ["zgod", "tylko", "wysyłamy", "odkład"],
     aiTypingMs: 1500,
     aiMessage:
-      "Zrobione. Rozbiłem 9 960 na 5 podsegmentów: (1) duże miasta 20+ specjalistów — 1 900, email + push + LinkedIn Ads; (2) miasta średnie 10-20 specjalistów — 3 600, główny segment, email z pytaniem + SMS follow-up; (3) małe miasta — 2 500, SMS + call center od razu, bez fazy mailowej; (4) NOWE — enrichment web z sygnałem intentu (placówki które ostatnio rekrutowały lekarzy) — 1 200, email personalizowany + LinkedIn InMail; (5) 760 z hard bounce / brakami danych — suppression + naprawa danych. Zobacz plan po prawej, dla każdego podsegmentu mam uzasadnienie kanału i przykładowe copy. Co sądzisz?",
-    actions: [{ type: "setPanel", panel: "segmentationPlanner" }],
+      "Jasne, zostaje 7 100 kontaktów ze zgodą.\n\nNie wiemy, ilu specjalistów ma każda przychodnia, więc dzielę bazę po wielkości miasta. To najlepsze przybliżenie wielkości placówki i tego, kto u nich decyduje:\n\n• Duże miasta: 5 000 kontaktów. Większe placówki, decyduje dyrektor albo kierownik.\n• Małe miasta: 2 000 kontaktów. Często decyduje sam właściciel-lekarz.\n• Odrzuty: 100. Placówki zamknięte w RPWDL, błędne dane, duplikaty. Do nich nie piszemy.\n\nPotwierdzasz taki podział?",
+    actions: [{ type: "acceptBase" }, { type: "setPanel", panel: "pozClusters" }],
   },
   {
-    id: "b3c_confirm",
-    quickReply: "Świetny podział. Akceptuję plan — dalej z kreacjami.",
-    keywords: ["świetn", "akceptuj", "dalej", "plan", "zgadzam", "ok"],
-    aiTypingMs: 1000,
+    id: "b3_content",
+    quickReply: "Potwierdzam. Co do nich wysyłamy?",
+    keywords: ["potwierdzam", "wysył", "treść", "komunikat", "co"],
+    aiTypingMs: 1500,
     aiMessage:
-      "Super. Teraz kreacje pod każdy podsegment — bazowa wartość produktu jest ta sama, ale kąty inne. Przygotowałem trzy główne warianty do wyboru jako fundament: ROI czasu lekarza, redukcja no-show, unifikacja NFZ + prywatni. Wybierz fundament — ja dopiszę odmiany per podsegment (case wielkomiejski, pytanie w temacie, prosty SMS itd.).",
-    actions: [{ type: "setPanel", panel: "creatives" }],
+      "Do każdego klastra inny komunikat:\n\n• Duże miasta: „mniej czasu na rejestrację, więcej na pacjentów”. Tam jest dużo pacjentów, kolejki na telefonie i kilka osób w rejestracji, więc gramy oszczędnością czasu.\n• Małe miasta: „prosto i bez wdrożenia”. Właściciel sam wszystkiego pilnuje, liczy się prostota i wsparcie.\n\nPo prawej masz treści dla dużych miast: mail od handlowca, SMS i WhatsApp. Wszystko prowadzi do jednego celu, czyli umówienia 20-minutowego demo.",
+    actions: [{ type: "setPanel", panel: "pozContent" }],
   },
   {
-    id: "b4_pick",
-    quickReply: "Idziemy z pierwszą — ROI czasu lekarza. CTA: umów demo.",
-    keywords: ["pierwsz", "roi", "czas", "umów", "cta"],
-    aiTypingMs: 900,
+    id: "b4_path",
+    quickReply: "Dobre. Jak to rozplanujesz na najbliższe 2 tygodnie?",
+    keywords: ["plan", "tygodni", "ścieżk", "rozplanuj", "kiedy"],
+    aiTypingMs: 1600,
     aiMessage:
-      "Zapisane. Kreacja bazowa: „ROI czasu lekarza”. Dopisuję odmiany per podsegment automatycznie na bazie wcześniejszego planu. W ramach kampanii dodatkowo test A/B/C — trzy warianty subject line/hipotezy, żeby wycisnąć maksimum. Zobacz test A/B po prawej i możesz podejrzeć każdy wariant w każdym kanale.",
-    actions: [
-      { type: "selectCreative", id: "c1" },
-      { type: "setPanel", panel: "channel" },
-      { type: "setSplit", email: 5000, sms: 5000, share: 0.5 },
-    ],
+      "Proponuję taką ścieżkę dla dużych miast:\n\n1. Dzień 1: mail do wszystkich.\n2. Dzień 2: jeśli ktoś nie otworzył maila w 24 h, idzie SMS.\n3. Dzień 4: jeśli nadal cisza, WhatsApp z przyciskami „wtorek / czwartek / nie teraz”.\n4. Dzień 8: mail przypominający z case study przychodni z tego samego miasta.\n5. Dzień 11: ostatni SMS, „czy mam się już nie odzywać?”.\n\nJeśli ktoś w trakcie da sygnał (otworzy maila 2+ razy, kliknie w link do demo albo odpisze), zatrzymuję automat i daję go handlowcowi do telefonu, razem z historią tego, co zrobił. Kto umówi demo albo kliknie „nie teraz”, wypada ze ścieżki. Maks. jedna wiadomość dziennie, tylko w godzinach pracy przychodni.\n\nOdpalamy?",
+    actions: [{ type: "setPanel", panel: "pozPath" }],
   },
   {
     id: "b5_launch",
-    quickReply: "OK, akceptuję warianty. Odpalaj kampanię do wszystkich 5 podsegmentów.",
-    keywords: ["odpal", "execute", "start", "launch", "akceptuj"],
-    aiTypingMs: 800,
+    quickReply: "Odpalaj.",
+    keywords: ["odpal", "start", "uruchom", "jedziemy"],
+    aiTypingMs: 900,
     aiMessage:
-      "Uruchamiam kampanię jednocześnie do 5 podsegmentów, każdy z własnym copy i kanałem. Raportowanie skonfigurowane per segment — zobaczysz który podsegment konwertuje najlepiej.",
-    actions: [
-      { type: "setPanel", panel: "launch" },
-      { type: "launch" },
-    ],
-    timeline: [
-      { delayMs: 3500, action: { type: "setPanel", panel: "report" } },
-    ],
+      "Poszło. Po prawej widać, jak ścieżka idzie dzień po dniu: kto dostał SMS, bo nie otworzył maila, kto trafił do handlowca i kto już umówił demo.",
+    actions: [{ type: "setPanel", panel: "pozLive" }, { type: "launch" }],
   },
   {
-    id: "b6_week",
-    quickReply: "Przewiń o tydzień — co wyszło i który podsegment wygrał?",
-    keywords: ["tydzie", "week", "wynik", "raport", "podsegm", "wygra"],
-    aiTypingMs: 1400,
+    id: "b6_summary",
+    quickReply: "Przewiń o 2 tygodnie. Jak poszło?",
+    keywords: ["przewiń", "tygodn", "wynik", "poszło", "podsumow"],
+    aiTypingMs: 1700,
     aiMessage:
-      "Podsumowanie po 7 dniach: 180 umówionych spotkań łącznie, CTR łączny 5,1% (vs 1,2% gdybyśmy wysłali jeden mail do wszystkich = 4,2× lepiej). Zwycięzca to segment „Enrichment · recent search” — placówki znalezione poza HubSpot, które ostatnio rekrutowały; CTR 9,1%, 52 spotkania z 1 200 kontaktów. Underperformer: duże miasta (CTR 2,4%) — copy z twardą liczbą PLN nie zadziałało u dyrektorów szpitali. Zobacz raport per segment po prawej — mam konkretne rekomendacje na drugą falę.",
-    actions: [
-      { type: "advanceWeek" },
-      { type: "setPanel", panel: "segmentPerformance" },
-    ],
+      "Podsumowanie 2 tygodni dla dużych miast (5 000 kontaktów):\n\n• 85 umówiło demo: 31 z maila, 22 z SMS-a i 32 z WhatsAppa. WhatsApp okazał się najskuteczniejszy, mimo że był dopiero trzecim krokiem.\n• 640 weszło w interakcję, ale nie umówiło się: otworzyli maila kilka razy, kliknęli w link albo odpisali.\n• 4 100 nie zrobiło nic na żadnym z 5 kontaktów.\n• 175 to odbicia, wypisy i „nie teraz”.\n\nMoja rekomendacja:\n1. Tych 640 trzeba obdzwonić teraz. Są zainteresowani, a rozmowa z człowiekiem domknie to najszybciej. Najpierw 190 osób, które kliknęły link do demo.\n2. Do tych 4 100 spróbujmy innej treści i innej ścieżki: case study przychodni z ich miasta zamiast oszczędności czasu, i zacznijmy od WhatsAppa.",
+    actions: [{ type: "advanceWeek" }, { type: "setPanel", panel: "pozSummary" }],
   },
   {
     id: "b7_next",
-    quickReply: "Skalujemy zwycięzcę i naprawiamy underperformera. Odpal drugą falę.",
-    keywords: ["skaluj", "napraw", "odpal", "druga", "fala", "tak"],
-    aiTypingMs: 1200,
+    quickReply: "Zgoda. Daj listę handlowcom i przygotuj nową ścieżkę dla reszty.",
+    keywords: ["zgoda", "list", "handlow", "nową", "ścieżk"],
+    aiTypingMs: 1400,
     aiMessage:
-      "Zrobione. Druga fala odpalona: (1) skalowanie „Enrichment · recent search” 3× — zaciągnąłem kolejne 3 600 podmiotów z RPWDL z aktywnymi ogłoszeniami rekrutacyjnymi, prognoza +140 spotkań; (2) naprawa dużych miast — copy z twardej liczby PLN zmienione na miękki case („12 warszawskich placówek już…”) + LinkedIn InMail od Twojego CEO, prognoza CTR 2,4% → ~4%; (3) miasta średnie i małe — druga fala z case study zamiast pytania, prognoza +90 spotkań; (4) 320 naprawionych kontaktów z suppression wraca do gry przez SMS + call center. Prognoza total drugiej fali: ~310 spotkań. Wszystkie leady synchronizują się do HubSpota z tagiem segmentu i historią engagementu. Cała pętla zamknięta — chcesz dodać nowy cel biznesowy albo przejść do innego produktu?",
+      "Zrobione.\n\n• 640 kontaktów jest w CRM jako zadania dla handlowców, posortowane od najgorętszych. Przy każdym widać, co ta osoba otworzyła, w co kliknęła i co odpisała, żeby handlowiec wiedział, od czego zacząć rozmowę.\n• Dla 4 100 osób bez reakcji przygotowałem nową ścieżkę: WhatsApp z case study na start, potem mail z pełnym case study, a na koniec SMS z zaproszeniem na 15-minutowe demo. Rusza w poniedziałek.\n• Równolegle startuje ścieżka dla małych miast (2 000 kontaktów) z komunikatem „prosto i bez wdrożenia”.\n\nZa 2 tygodnie wrócę z wynikami obu.",
+    actions: [{ type: "setPanel", panel: "pozNext" }],
   },
 ];
 

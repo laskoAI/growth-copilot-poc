@@ -14,6 +14,7 @@ import Wave2Report from "./Wave2Report";
 import WeekLaterReport from "./WeekLaterReport";
 import SegmentBreakdown from "./SegmentBreakdown";
 import { OlxDiagnosis, OlxBase, OlxSegments, OlxCreatives, OlxAB, OlxChannelPlan, OlxLive, OlxPeople, OlxLearnings, OlxNext, OlxWinback } from "./OlxPanels";
+import { PozBase, PozClusters, PozContent, PozPath, PozLive, PozSummary, PozNext } from "./PozPanels";
 
 export default function PanelHost() {
   const panel = useStore((s) => s.panel);
@@ -42,6 +43,13 @@ export default function PanelHost() {
     olxLearnings: <OlxLearnings />,
     olxNext: <OlxNext />,
     olxWinback: <OlxWinback />,
+    pozBase: <PozBase />,
+    pozClusters: <PozClusters />,
+    pozContent: <PozContent />,
+    pozPath: <PozPath />,
+    pozLive: <PozLive />,
+    pozSummary: <PozSummary />,
+    pozNext: <PozNext />,
   };
 
   return (
