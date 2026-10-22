@@ -1,0 +1,182 @@
+[
+  {
+    "id": "c1",
+    "title": "Odzyskaj czas lekarza — automatyzacja rejestracji w POZ",
+    "angle": "ROI czasu lekarza",
+    "cta": "Umów demo",
+    "email": {
+      "subject": "{imie_placowki} — odzyskaj 12h tygodniowo lekarzowi",
+      "preheader": "Realne wyniki z 40 placówek POZ. 20 minut demo.",
+      "body": "Dzień dobry,\n\nw placówkach POZ podobnych do {imie_placowki} lekarze tracą średnio 12 godzin tygodniowo na obsłudze zapisów i telefonach.\n\nNasze rozwiązanie skraca ten czas o 63% i podnosi satysfakcję pacjenta — bez migracji danych i bez zmiany systemu rozliczeń z NFZ. Chętnie pokażemy wyniki z 40 placówek POZ w 20-minutowym demo dopasowanym do Waszej specyfiki.",
+      "cta": "Umów demo"
+    },
+    "sms": {
+      "body": "{imie_placowki}: odzyskaj 12h/tydz. lekarzowi. Wyniki z 40 placówek POZ. Demo 20 min: {link}"
+    },
+    "push": {
+      "title": "12 godzin tygodniowo z powrotem u lekarza",
+      "body": "Zobacz jak 40 placówek POZ odzyskało czas lekarza. Demo 20 min."
+    },
+    "variants": [
+      {
+        "id": "c1-A",
+        "label": "A · Liczba (63%)",
+        "hypothesis": "Konkretna liczba w temacie napędza kliknięcia u dyrektorów",
+        "email": {
+          "subject": "{imie_placowki} — 63% mniej czasu lekarza na rejestracji",
+          "preheader": "Wyniki z 40 placówek POZ. Demo 20 minut.",
+          "body": "Dzień dobry,\n\nw {imie_placowki} lekarze tracą średnio 12 godzin tygodniowo na obsłudze zapisów.\n\nNasze rozwiązanie skraca ten czas o 63%. To liczba z 40 placówek POZ, w których wdrożyliśmy system w ostatnich 6 miesiącach. Chętnie pokażemy wyniki na 20-minutowym demo.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: -63% czasu lekarza na rejestracji. Wyniki z 40 POZ. Demo 20 min: {link}" },
+        "push": { "title": "-63% czasu lekarza", "body": "Wyniki z 40 placówek POZ. Zobacz demo." }
+      },
+      {
+        "id": "c1-B",
+        "label": "B · Historia (case study)",
+        "hypothesis": "Storytelling z konkretnej placówki działa mocniej na small-medium POZ",
+        "email": {
+          "subject": "{imie_placowki} — jak Centrum Vitalis odzyskało dzień pracy tygodniowo",
+          "preheader": "Case study z placówki podobnej do Waszej.",
+          "body": "Dzień dobry,\n\nMedcentrum Vitalis (POZ, 14 specjalistów, Kraków) w 6 tygodni odzyskał lekarzom 1 dzień pracy tygodniowo dzięki automatyzacji rejestracji.\n\nProfil placówki bardzo przypomina {imie_placowki}. Chętnie pokażę Wam, jak zbudowaliśmy to wdrożenie — 20 minut demo wystarczy.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: jak POZ Vitalis odzyskał 1 dzień/tydz. lekarzom. Demo 20 min: {link}" },
+        "push": { "title": "Case study: 1 dzień pracy odzyskany", "body": "POZ Vitalis (Kraków, 14 specjalistów). Zobacz jak." }
+      },
+      {
+        "id": "c1-C",
+        "label": "C · Pytanie",
+        "hypothesis": "Pytanie w temacie zwiększa open rate o ~15% na tej bazie",
+        "email": {
+          "subject": "{imie_placowki} — ile godzin lekarzy zjada Wam rejestracja?",
+          "preheader": "Porównanie: przed vs po wdrożeniu.",
+          "body": "Dzień dobry,\n\npytanie na start: ile godzin tygodniowo tracą lekarze w {imie_placowki} na obsłudze rejestracji?\n\nW 40 placówkach POZ, z którymi pracowaliśmy, ta liczba spadła średnio o 63%. Pokażę Wam konkretne dane — 20 minut demo dopasowanego do Waszej placówki.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: ile godzin lekarzy zjada Wam rejestracja? Sprawdź: {link}" },
+        "push": { "title": "Ile godzin lekarzy zjada rejestracja?", "body": "Porównaj się z 40 placówkami POZ." }
+      }
+    ]
+  },
+  {
+    "id": "c2",
+    "title": "Więcej wizyt, mniej no-show — sprawdzone w POZ",
+    "angle": "Redukcja no-show",
+    "cta": "Umów demo",
+    "email": {
+      "subject": "{imie_placowki} — mniej no-show o 28% w 6 tygodni",
+      "preheader": "Automatyczne przypomnienia + inteligentny grafik.",
+      "body": "Dzień dobry,\n\nplacówki POZ podobne do {imie_placowki} ograniczyły no-show o 28% w 6 tygodni dzięki automatycznym przypomnieniom i inteligentnemu grafikowi.\n\nTo realny wzrost przychodu bez dodatkowych pacjentów w bazie. 20 minut z naszym specjalistą wystarczy, żeby oszacować potencjał u Was.",
+      "cta": "Umów demo"
+    },
+    "sms": {
+      "body": "{imie_placowki}: -28% no-show w 6 tyg. Realne dane z placówek POZ. Demo 20 min: {link}"
+    },
+    "push": {
+      "title": "-28% no-show w 6 tygodni",
+      "body": "Automatyczne przypomnienia dla placówek POZ."
+    },
+    "variants": [
+      {
+        "id": "c2-A",
+        "label": "A · Straty finansowe",
+        "hypothesis": "Zamiana % na PLN zwiększa CTR u zarządzających",
+        "email": {
+          "subject": "{imie_placowki} — ile miesięcznie zjadają Wam no-show?",
+          "preheader": "Realne wyliczenie na przykładzie POZ z 15 specjalistami.",
+          "body": "Dzień dobry,\n\nPOZ o wielkości {imie_placowki} traci średnio 18–24 tys. zł miesięcznie na no-show. Nasze rozwiązanie redukuje to o 28% w 6 tygodni.\n\nZróbmy 20-minutowe demo — pokażę Wam wyliczenie na Waszych realiach.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: ~20 tys. zł/mies. traconych na no-show. Rozwiązanie: {link}" },
+        "push": { "title": "~20 tys. zł/mies. traconych na no-show", "body": "Rozwiązanie sprawdzone w POZ." }
+      },
+      {
+        "id": "c2-B",
+        "label": "B · Krótki + urgency",
+        "hypothesis": "Krótki temat bez liczb + urgency lepiej działa w kanale SMS",
+        "email": {
+          "subject": "Grafik POZ bez no-show — {imie_placowki}",
+          "preheader": "Wdrożenie w 2 tygodnie. Ograniczona liczba pilotaży w Q1.",
+          "body": "Dzień dobry,\n\nzamykamy w Q1 nabór do pilotażu redukcji no-show w POZ. Placówki, które weszły w pilotaż, ograniczyły no-show o 28% w 6 tygodni.\n\n{imie_placowki} pasuje do profilu — chętnie pokażę szczegóły na 20-min demo.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: nabór do pilotażu (-28% no-show) kończy się w Q1. Demo: {link}" },
+        "push": { "title": "Nabór do pilotażu Q1", "body": "-28% no-show w 6 tyg. Miejsca ograniczone." }
+      },
+      {
+        "id": "c2-C",
+        "label": "C · Społeczny dowód",
+        "hypothesis": "Nazwiska konkretnych placówek uwiarygadniają ofertę",
+        "email": {
+          "subject": "{imie_placowki} — dołącz do 40 placówek POZ, które ograniczyły no-show",
+          "preheader": "Salus, Vitalis, MedPlus i 37 innych.",
+          "body": "Dzień dobry,\n\ndo tej pory 40 placówek POZ (Salus Warszawa, Vitalis Kraków, MedPlus Wrocław i 37 innych) ograniczyło no-show o średnio 28% w 6 tygodni.\n\n{imie_placowki} ma profil pasujący do tej grupy. Zapraszam na 20-min demo — pokażę case’y.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: 40 POZ już zredukowało no-show o 28%. Dołącz: {link}" },
+        "push": { "title": "40 POZ już zredukowało no-show", "body": "Salus, Vitalis, MedPlus i 37 innych." }
+      }
+    ]
+  },
+  {
+    "id": "c3",
+    "title": "NFZ, prywatni pacjenci, jedno miejsce",
+    "angle": "Unifikacja NFZ + prywatni",
+    "cta": "Umów demo",
+    "email": {
+      "subject": "{imie_placowki} — NFZ i pacjenci prywatni w jednym miejscu",
+      "preheader": "Wdrożenie w 2 tygodnie, bez migracji danych.",
+      "body": "Dzień dobry,\n\nw {imie_placowki} przepływ pacjentów NFZ i komercyjnych prawdopodobnie idzie przez dwa różne procesy. To generuje błędy w rozliczeniach i frustrację rejestracji.\n\nNasze rozwiązanie łączy oba tory w jednym systemie — wdrożenie w 2 tygodnie, bez migracji danych. Pokażemy live demo dopasowane do Waszej placówki.",
+      "cta": "Umów demo"
+    },
+    "sms": {
+      "body": "{imie_placowki}: NFZ + prywatni w 1 systemie. Wdrożenie 2 tyg. Live demo: {link}"
+    },
+    "push": {
+      "title": "NFZ i prywatni w jednym systemie",
+      "body": "Wdrożenie w 2 tygodnie. Bez migracji danych."
+    },
+    "variants": [
+      {
+        "id": "c3-A",
+        "label": "A · Ból procesu",
+        "hypothesis": "Uderzenie w ból rejestracji generuje większy engagement",
+        "email": {
+          "subject": "{imie_placowki} — koniec z podwójną rejestracją NFZ vs prywatny",
+          "preheader": "Rejestracja bez błędów w rozliczeniach.",
+          "body": "Dzień dobry,\n\nw {imie_placowki} rejestracja pewnie prowadzi dwa różne procesy dla NFZ i pacjentów prywatnych. Efekt: błędy w rozliczeniach, frustracja i wolniejsza obsługa.\n\nNasze rozwiązanie łączy oba tory w jednym widoku. Wdrożenie: 2 tygodnie, bez migracji. Live demo dopasowane do {imie_placowki}.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: koniec z podwójną rejestracją NFZ vs prywatny. Demo: {link}" },
+        "push": { "title": "Koniec z podwójną rejestracją", "body": "NFZ + prywatni w jednym widoku." }
+      },
+      {
+        "id": "c3-B",
+        "label": "B · Szybkość wdrożenia",
+        "hypothesis": "Fraza „2 tygodnie” to główny driver dla dyrektorów placówek",
+        "email": {
+          "subject": "{imie_placowki} — jedno okno na NFZ + prywatnych w 2 tygodnie",
+          "preheader": "Bez migracji danych. Bez ryzyka dla rozliczeń NFZ.",
+          "body": "Dzień dobry,\n\nwdrożymy Wam jedno okno rejestracji dla NFZ i pacjentów prywatnych w 2 tygodnie — bez migracji danych i bez ryzyka dla bieżących rozliczeń z NFZ.\n\n20 minut demo wystarczy, żeby ocenić dopasowanie do {imie_placowki}.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: NFZ + prywatni w 1 systemie. Wdrożenie 2 tyg. Demo: {link}" },
+        "push": { "title": "Wdrożenie w 2 tygodnie", "body": "NFZ + prywatni, bez migracji." }
+      },
+      {
+        "id": "c3-C",
+        "label": "C · ROI dla dyrektora",
+        "hypothesis": "Wynik finansowy w temacie działa na osoby zarządzające",
+        "email": {
+          "subject": "{imie_placowki} — +18% przychodu z prywatnych bez zmiany rejestracji",
+          "preheader": "Case z 12 placówek POZ.",
+          "body": "Dzień dobry,\n\nplacówki POZ, które połączyły obsługę NFZ i prywatnych w naszym systemie, zwiększyły przychód z prywatnych średnio o 18% — bez zmiany zespołu rejestracji.\n\n{imie_placowki} pasuje do tego profilu. 20-min demo pokaże Wam wyliczenie na Waszych realiach.",
+          "cta": "Umów demo"
+        },
+        "sms": { "body": "{imie_placowki}: +18% przychodu z prywatnych bez zmian w rejestracji. Demo: {link}" },
+        "push": { "title": "+18% przychodu z prywatnych", "body": "Case z 12 placówek POZ." }
+      }
+    ]
+  }
+]

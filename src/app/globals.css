@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --panel-2: #f3f5fa;
+  --border: #e4e7ef;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #4f6bff;
+  --accent-2: #7c5cff;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* miękkie karty */
+.rounded-xl.border,
+.rounded-2xl.border {
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.04);
+}
+
+button { transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, opacity 150ms ease; }
+
+input:focus { box-shadow: 0 0 0 3px rgba(79, 107, 255, 0.15); }
+
+/* thin scrollbar */
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #d5d9e3; border-radius: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
