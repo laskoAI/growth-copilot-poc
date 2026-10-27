@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Growth Marketer AI — Demo",
-  description: "Growth Marketer AI POC",
+  title: "Nuvera — Growth Copilot Demo",
+  description: "Demo agenta AI do growth marketingu nad istniejącymi narzędziami wysyłek",
 };
 
 export default function RootLayout({
