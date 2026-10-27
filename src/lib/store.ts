@@ -1,40 +1,16 @@
 "use client";
 import { create } from "zustand";
-import type { Filters } from "./fakeData";
 
 export type PanelId =
   | "welcome"
-  | "segment"
-  | "baseProposal"
-  | "segmentationPlanner"
-  | "creatives"
-  | "channel"
-  | "launch"
-  | "report"
-  | "segmentPerformance"
-  | "wave2Report"
-  | "weekLater"
-  | "segmentBreakdown"
-  | "olxDiagnosis"
-  | "olxBase"
-  | "olxSegments"
-  | "olxCreatives"
-  | "olxAB"
-  | "olxChannelPlan"
-  | "olxLive"
-  | "olxPeople"
-  | "olxLearnings"
-  | "olxNext"
-  | "olxWinback"
-  | "pozBase"
-  | "pozClusters"
-  | "pozContent"
-  | "pozPath"
-  | "pozLive"
-  | "pozSummary"
-  | "pozNext";
+  | "dataSources"
+  | "potentialSegment"
+  | "previousCampaignDiagnosis"
+  | "campaignPlan"
+  | "sendResults"
+  | "summary";
 
-export type FlowId = "A" | "B" | "C" | null;
+export type StageId = 0 | 1 | 2 | 3 | 4;
 
 export type ChatMessage = {
   id: string;
@@ -42,67 +18,40 @@ export type ChatMessage = {
   text: string;
 };
 
+// Store trzyma WYŁĄCZNIE minimalny, autorytatywny stan. Wszystko inne
+// (widoczne wiadomości, panel, krok paska postępu) jest czystą funkcją
+// tego stanu — patrz lib/demoScript.ts (getPanelForStep, getStageForStep,
+// getVisibleMessages). Dzięki temu cofnij/dalej/restart to tylko ustawienie
+// liczby, nigdy nie ma czego "rozjechać".
 export type Store = {
-  flow: FlowId;
-  panel: PanelId;
   stepIndex: number;
-  messages: ChatMessage[];
-  isTyping: boolean;
-  filters: Filters;
-  segmentCount: number;
-  selectedCreativeId: string | null;
-  emailShare: number; // 0..1
-  emailCount: number;
-  smsCount: number;
-  launched: boolean;
-  weekAdvanced: boolean;
-  baseAccepted: boolean;
+  maxStepReached: number;
 
-  setFlow: (f: FlowId) => void;
-  setPanel: (p: PanelId) => void;
-  addMessage: (m: ChatMessage) => void;
+  // Stan efemeryczny: "trwa ujawnianie kroku pendingStep, jeszcze niezacommitowanego".
+  // Zawsze kasowany na starcie goBack/goForward/restart w lib/nav.ts, razem
+  // z anulowaniem jedynego setTimeout w aplikacji — nigdy nie zostaje "w locie".
+  pendingStep: number | null;
+  isTyping: boolean;
+
+  setStepIndex: (i: number) => void;
+  setMaxStepReached: (i: number) => void;
+  setPending: (step: number | null) => void;
   setTyping: (v: boolean) => void;
-  setStep: (i: number) => void;
-  setFilters: (f: Filters) => void;
-  setSegmentCount: (n: number) => void;
-  setSelectedCreative: (id: string) => void;
-  setSplit: (email: number, sms: number, share: number) => void;
-  setLaunched: (v: boolean) => void;
-  setWeekAdvanced: (v: boolean) => void;
-  setBaseAccepted: (v: boolean) => void;
   reset: () => void;
 };
 
 const initial = {
-  flow: null as FlowId,
-  panel: "welcome" as PanelId,
   stepIndex: 0,
-  messages: [] as ChatMessage[],
+  maxStepReached: 0,
+  pendingStep: null as number | null,
   isTyping: false,
-  filters: {} as Filters,
-  segmentCount: 0,
-  selectedCreativeId: null as string | null,
-  emailShare: 0.5,
-  emailCount: 5000,
-  smsCount: 5000,
-  launched: false,
-  weekAdvanced: false,
-  baseAccepted: false,
 };
 
 export const useStore = create<Store>((set) => ({
   ...initial,
-  setFlow: (f) => set({ flow: f }),
-  setPanel: (p) => set({ panel: p }),
-  addMessage: (m) => set((s) => ({ messages: [...s.messages, m] })),
+  setStepIndex: (i) => set({ stepIndex: i }),
+  setMaxStepReached: (i) => set({ maxStepReached: i }),
+  setPending: (step) => set({ pendingStep: step }),
   setTyping: (v) => set({ isTyping: v }),
-  setStep: (i) => set({ stepIndex: i }),
-  setFilters: (f) => set({ filters: f }),
-  setSegmentCount: (n) => set({ segmentCount: n }),
-  setSelectedCreative: (id) => set({ selectedCreativeId: id }),
-  setSplit: (email, sms, share) => set({ emailCount: email, smsCount: sms, emailShare: share }),
-  setLaunched: (v) => set({ launched: v }),
-  setWeekAdvanced: (v) => set({ weekAdvanced: v }),
-  setBaseAccepted: (v) => set({ baseAccepted: v }),
   reset: () => set({ ...initial }),
 }));
